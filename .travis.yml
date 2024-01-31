@@ -5,7 +5,7 @@ services:
 
 before_install:
 - echo "docker compose creating and start"
-- docker compose build
+- docker-compose build
 
 script:
 - docker-compose up -d 
