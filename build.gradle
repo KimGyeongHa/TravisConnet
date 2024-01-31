@@ -139,5 +139,5 @@ test {
 // travis ci 테스트
 task integrationTest(type: Test) {
 	useJUnitPlatform()
-	dependsOn test
+	include '**/*IntegrationTest.*'
 }
