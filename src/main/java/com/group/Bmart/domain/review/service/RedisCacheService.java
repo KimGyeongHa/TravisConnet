@@ -20,9 +20,9 @@ public class RedisCacheService {
     ) {
         Long cachedCount = numberOfReviewsRedisTemplate.opsForValue().get(cacheKey);
 
-        if (cachedCount != null) {
+       /* if (cachedCount != null) {
             return cachedCount;
-        }
+        }*/
 
         long dbCount = reviewRepository.countByItem_ItemId(itemId);
 

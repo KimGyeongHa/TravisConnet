@@ -1,9 +1,28 @@
 version: '3'
 
 services:
-  bmart-redis:
+  bmart-app:
+    container_name : bmart-app
+    build: ./bmart_dockerfile/.
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+    environment:
+      SPRING_REDIS_HOST: redis
+  nginx:
+    build: ./nginx_dockerfile/.
+    ports:
+      - "80:80"
+    depends_on:
+      - bmart-app
+  redis:
     container_name: bmart-redis
     image: redis:latest
     ports:
-      - "8080:80"
-
+      - "6379:6379"
