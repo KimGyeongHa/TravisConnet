@@ -1,17 +1,26 @@
-sudo: required
-
-language: generic
+language: java
+jdk:
+  - openjdk11
 
 services:
   - docker
 
 before_install:
-- echo "docker compose creating and start"
-- docker-compose build
+  - chmod +x ./gradlew
+  - docker-compose up -d --build
 
 script:
-- docker-compose up -d bmart-app
-- docker-compose exec bmart-app gradle integrationTest
+  - ./gradlew clean build
+  - ./gradlew test
+  - docker exec <container_name> ./gradlew integrationTest
 
-after_success:
-- echo "Test Success"
+after_script:
+  - docker-compose down
+
+# (옵션) 필요에 따라 다음과 같이 추가적인 설정을 할 수 있습니다.
+# notifications:
+#   email:
+#     recipients:
+#       - your_email@example.com
+#     on_success: always
+#     on_failure: always
