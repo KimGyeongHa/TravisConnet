@@ -9,6 +9,7 @@ before_install:
 
 script:
 - docker-compose up -d 
+- docker-compose exec bmart-app ./gradlew clean build
 - docker-compose exec bmart-app ./gradlew integrationTest
 
 after_success:
