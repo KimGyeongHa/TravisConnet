@@ -7,10 +7,10 @@ services:
 
 before_install:
 - echo "docker compose creating and start"
-- docker compose build
+- docker-compose build
 
 script:
-- docker compose up
+- docker-compose up
 
 after_success:
 - echo "Test Success"
