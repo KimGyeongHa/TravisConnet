@@ -11,7 +11,7 @@ before_install:
 
 script:
 - docker-compose up -d bmart-app
-- docker-compose exec bmart-app asciidoctor
+- docker-compose exec bmart-app ./gradlew integrationTest
 
 after_success:
 - echo "Test Success"
