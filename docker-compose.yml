@@ -3,7 +3,7 @@ version: '3'
 services:
   bmart-app:
     container_name : bmart-app
-    build: ./bmart_dockerfile/.
+    build: .
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
       interval: 10s

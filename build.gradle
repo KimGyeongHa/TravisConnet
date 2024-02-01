@@ -20,6 +20,7 @@ jar {
 
 java {
 	sourceCompatibility = '17'
+	targetCompatibility = '17'
 }
 
 configurations {
@@ -137,7 +138,7 @@ test {
 	useJUnitPlatform()
 }
 // travis ci 테스트
-task integrationTest(type: Test) {
+task bmartIntegrationTest(type: Test) {
 	useJUnitPlatform()
-	include '**/*IntegrationTest.*'
+	include '**/*bmartIntegrationTest.*'
 }
