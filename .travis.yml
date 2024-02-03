@@ -11,7 +11,7 @@ script:
 - docker build -t kimgyeongha/bmart-app:develop  /bmart_dockerfile/.
 - docker build -t kimgyeongha/nginx-app:develop  /nginx_dockerfile/.
 - docker push kimgyeongha/bmart-app:develop
-- docker push kimgyeongha/nginx-app:developg
+- docker push kimgyeongha/nginx-app:develop
 - docker-compose up -d 
 
 after_success:
