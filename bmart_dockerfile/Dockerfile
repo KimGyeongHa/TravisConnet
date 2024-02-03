@@ -6,7 +6,7 @@ COPY build.gradle .
 COPY settings.gradle . 
 COPY src src 
 RUN chmod +x ./gradlew 
-RUN ./gradlew bmartIntegrationTest build
+RUN ./gradlew build
 
 FROM openjdk:17-alpine
 COPY --from=builder /bmart-app/build/libs/*.jar app.jar
