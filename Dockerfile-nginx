@@ -1,4 +1,4 @@
-FROM gradle:lastest AS builder
+FROM gradle:latest AS builder
 WORKDIR /nginx-app
 COPY . .
 RUN mkdir ./app-resources
