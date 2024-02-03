@@ -9,9 +9,9 @@ before_install:
 
 script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- docker build -t kimgyeongha/bmart-app:develop  /bmart_dockerfile/.
-- docker build -t kimgyeongha/nginx-app:develop  /nginx_dockerfile/.
-- docker push kimgyeongha/bmart-app:develop
+- docker build -t kimgyeongha/bmart-app:develop  bmart_dockerfile/.
+- docker build -t kimgyeongha/nginx-app:develop  nginx_dockerfile/.
+- docker push kimgyeongha/bmart-app:develops
 - docker push kimgyeongha/nginx-app:develop
 - docker-compose up -d 
 
