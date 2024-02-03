@@ -2,7 +2,7 @@ FROM gradle:7.6.1-jdk17  AS builder
 WORKDIR /bmart-app
 COPY gradlew . 
 COPY gradle gradle 
-COPY build.gradle . 
+COPY build.gradle .
 COPY settings.gradle . 
 COPY src src 
 RUN chmod +x ./gradlew 
