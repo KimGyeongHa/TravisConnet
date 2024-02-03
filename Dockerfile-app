@@ -1,4 +1,4 @@
-FROM gradle:8.5-jdk17  AS builder 
+FROM gradle:latest  AS builder 
 WORKDIR /bmart-app
 COPY . .
 RUN chmod +x ./gradlew 
