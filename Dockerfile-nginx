@@ -3,6 +3,7 @@ WORKDIR /nginx-app
 COPY . .
 RUN mkdir ./app-resources
 RUN chmod +x ./gradlew
+ENV GRADLE_OPTS="-Xmx512m -Xms256m"
 RUN ./gradlew build
 
 FROM nginx
