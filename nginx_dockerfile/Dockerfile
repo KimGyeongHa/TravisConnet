@@ -1,6 +1,6 @@
 FROM gradle:8.5-jdk17 AS builder
 WORKDIR /nginx-app
-COPY . .
+COPY ../. .
 RUN mkdir ./app-resources
 RUN chmod +x ./gradlew
 RUN ./gradlew build
