@@ -90,6 +90,11 @@ bootJar {
 		from "${asciidoctor.outputDir}"
 		into 'BOOT-INF/classes/static/docs'
 	}
+	from('src/main/resources/static') {
+		into 'BOOT-INF/classes/static'
+	}
+	// 중복 파일 처리 전략 설정
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 }
 
 test {

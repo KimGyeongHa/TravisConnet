@@ -3,7 +3,7 @@ version: '3'
 services:
   bmart-app:
     container_name : bmart-app
-    build: .
+    image: kimgyeongha/bmart-app:develop
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
       interval: 10s
@@ -16,7 +16,7 @@ services:
     environment:
       SPRING_REDIS_HOST: redis
   nginx:
-    build: ./nginx_dockerfile/.
+    image: kimgyeongha/nginx-app:develop
     ports:
       - "80:80"
     depends_on:

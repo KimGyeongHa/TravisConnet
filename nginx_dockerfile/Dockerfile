@@ -1,9 +1,15 @@
-FROM openjdk:17-alpine AS builder
-WORKDIR /nginx_dockerfile
-COPY target/*.jar /nginx_dockerfile/app.jar
-RUN mkdir /app-resources && unzip /nginx_dockerfile/app.jar -d /app-resources
+FROM gradle:8.5-jdk17 AS builder
+WORKDIR /nginx-app
+COPY . .
+RUN mkdir ./app-resources
+RUN chmod +x ./gradlew
+RUN ./gradlew build
 
 FROM nginx
-COPY --from=builder /app-resources/BOOT-INF/classes/static/ /usr/share/nginx/html
+COPY --from=builder /nginx-app/build/libs/*.jar /nginx-app/app-resources/app.jar
+RUN apt-get update && apt-get install -y unzip
+RUN unzip /nginx-app/app-resources/app.jar 'BOOT-INF/classes/static/*' -d /nginx-app/app-resources && \
+    mv /nginx-app/app-resources/BOOT-INF/classes/static/* /usr/share/nginx/html/  && \
+    rm -rf /nginx-app/app-resources/*
 COPY nginx-conf/nginx.conf /etc/nginx/conf.d/default.conf
 CMD ["nginx", "-g", "daemon off;"]
