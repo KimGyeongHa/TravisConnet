@@ -5,13 +5,12 @@ services:
 
 before_install:
 - echo "docker compose creating and start"
-- docker-compose build
 
 script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- docker build -t kimgyeongha/bmart-app:develop  .
+- docker build -t kimgyeongha/bmart-app:develop -f Dockerfile-app .
 - docker push kimgyeongha/bmart-app:develops
-- docker build -t kimgyeongha/nginx-app:develop  .
+- docker build -t kimgyeongha/nginx-app:develop -f Dockerfile-nginx  .
 - docker push kimgyeongha/nginx-app:develop
 - docker-compose up -d 
 
