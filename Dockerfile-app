@@ -1,8 +1,7 @@
-FROM gradle:latest  AS builder 
+FROM gradle:8.5-jdk17  AS builder
 WORKDIR /bmart-app
 COPY . .
 RUN chmod +x ./gradlew 
-ENV GRADLE_OPTS="-Xmx512m -Xms256m"
 RUN ./gradlew build
 
 FROM openjdk:17-alpine

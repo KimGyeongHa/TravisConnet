@@ -1,9 +1,8 @@
-FROM gradle:latest AS builder
+FROM gradle:8.5-jdk17 AS builder
 WORKDIR /nginx-app
 COPY . .
 RUN mkdir ./app-resources
 RUN chmod +x ./gradlew
-ENV GRADLE_OPTS="-Xmx512m -Xms256m"
 RUN ./gradlew build
 
 FROM nginx
