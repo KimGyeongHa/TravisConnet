@@ -1,5 +1,5 @@
 {
-    "AWSEBDockerrunVersion": 2,
+    "AWSEBDockerrunVersion": 3,
     "containerDefinitions": [
       {
         "name": "bmart-app",
@@ -41,9 +41,6 @@
             "hostPort": 6379,
             "containerPort": 6379
           }
-        ],
-        "links": [
-          "bmart-app"
         ]
       }
     ]
