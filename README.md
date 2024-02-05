@@ -9,3 +9,5 @@
 1. travis ci 이용중 gradle build 시 메모리 부족으로 인한 오류 발생 -> dist: focal (새로운 가상머신 사용하도록 설정하여 더 많은 메모리를 사용할 수 있게함)
 
 2. dockerfile build 중 ../ 으로 상위폴더 접근을 하였으나, docker에서는 ../ 상위폴더 접근을 지원하지않음 > dockerfile 위치변경
+
+3. travis ev name값에 - 사용불가 _로 대체하여 사용
