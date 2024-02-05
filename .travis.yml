@@ -18,8 +18,8 @@ script:
 
 deploy:
   provider: elasticbeanstalk
-  access_key_id: "$AWS-ACCESS-KEY"
-  secret_access_key: "$AWS-SECRET-ACCESS-KEY"
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_ACCESS_KEY"
   region: "ap-northeast-2"
   app: "docker-bmart-app"
   env: "Docker-bmart-app-env"
