@@ -14,7 +14,6 @@ script:
 - docker push $DOCKER_USERNAME/bmart-app:develop
 - docker build -t $DOCKER_USERNAME/nginx-app:develop -f Dockerfile-nginx  .
 - docker push $DOCKER_USERNAME/nginx-app:develop
-- docker-compose up -d 
 
 deploy:
   provider: elasticbeanstalk
