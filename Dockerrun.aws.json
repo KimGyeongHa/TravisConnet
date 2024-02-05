@@ -3,7 +3,7 @@
     "containerDefinitions": [
       {
         "name": "bmart-app",
-        "image": "$DOCKER_USERNAME/bmart-app:develop",
+        "image": "kimgyeongha/bmart-app:develop",
         "essential": false,
         "hostname" : "bmart-app",
         "memory": 128,
@@ -19,7 +19,7 @@
       },
       {
         "name": "nginx",
-        "image": "$DOCKER_USERNAME/nginx-app:develop",
+        "image": "kimgyeongha/nginx-app:develop",
         "essential": true,
         "memory": 128,
         "portMappings": [
