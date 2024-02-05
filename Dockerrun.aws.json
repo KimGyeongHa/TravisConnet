@@ -1,5 +1,5 @@
 {
-    "AWSEBDockerrunVersion": 3,
+    "AWSEBDockerrunVersion": 1,
     "containerDefinitions": [
       {
         "name": "bmart-app",
@@ -7,11 +7,12 @@
         "essential": false,
         "hostname" : "bmart-app",
         "memory": 128,
-        "portMappings": 
+        "portMappings":[
             {
               "hostPort": 8080,
               "containerPort": 8080
-            },
+            }
+        ],
         "links": [
             "redis"
         ]
