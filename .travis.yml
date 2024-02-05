@@ -23,6 +23,8 @@ deploy:
   secret_access_key:
     secure: "$AWS-ACCESS-KEY"
   region: "ap-northeast-2"
-  app: "Docker-bmat-app"
-  env: "Docker-bmat-app-env"
+  app: "docker-bmart-app"
+  env: "Docker-bmart-app-env"
   bucket_name: "elasticbeanstalk-ap-northeast-2-284256502692"
+  on:
+    branch: develop
