@@ -10,10 +10,10 @@ before_install:
 
 script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- docker build -t kimgyeongha/bmart-app:develop -f Dockerfile-app .
-- docker push kimgyeongha/bmart-app:develop
-- docker build -t kimgyeongha/nginx-app:develop -f Dockerfile-nginx  .
-- docker push kimgyeongha/nginx-app:develop
+- docker build -t $DOCKER_USERNAME/bmart-app:develop -f Dockerfile-app .
+- docker push $DOCKER_USERNAME/bmart-app:develop
+- docker build -t $DOCKER_USERNAME/nginx-app:develop -f Dockerfile-nginx  .
+- docker push $DOCKER_USERNAME/nginx-app:develop
 - docker-compose up -d 
 
 deploy:
