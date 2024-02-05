@@ -26,5 +26,6 @@ deploy:
   app: "docker-bmart-app"
   env: "Docker-bmart-app-env"
   bucket_name: "elasticbeanstalk-ap-northeast-2-284256502692"
+  bucket_path : "docker-bmart-app"
   on:
     branch: develop
