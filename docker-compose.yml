@@ -15,7 +15,5 @@ services:
   redis:
     container_name: bmart-redis
     image: redis:latest
-    depends_on:
-      - bmart-app
     ports:
       - "6379:6379"
