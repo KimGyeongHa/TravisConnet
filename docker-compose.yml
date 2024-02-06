@@ -4,16 +4,13 @@ services:
   bmart-app:
     container_name : bmart-app
     image: kimgyeongha/bmart-app:develop
+    ports:
+      - "80:80"
     depends_on:
       - redis
     environment:
       SPRING_REDIS_HOST: redis
-  nginx:
-    image: kimgyeongha/nginx-app:develop
-    ports:
-      - "80:80"
-    depends_on:
-      - bmart-app
+  
   redis:
     container_name: bmart-redis
     image: redis:latest
