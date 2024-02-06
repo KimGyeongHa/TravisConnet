@@ -10,9 +10,23 @@ before_install:
 
 script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-- docker build -t $DOCKER_USERNAME/bmart-app:develop -f Dockerfile-app .
+- docker build -t $DOCKER_USERNAME/bmart-app:develop \
+      --build-arg url=$DATABASE_URL \
+      --build-arg username=$DATABASE_USERNAME \
+      --build-arg password=$DATABASE_PASSWORD \
+      --build-arg naver_client_id=$NAVER_CLIENT_ID \
+      --build-arg naver_client_secret=$NAVER_CLIENT_SECRET \
+      --build-arg kakao_client_id=$KAKAO_CLIENT_ID \
+      --build-arg kakao_client_secret=$KAKAO_CLIENT_SECRET \ -f Dockerfile-app .
 - docker push $DOCKER_USERNAME/bmart-app:develop
-- docker build -t $DOCKER_USERNAME/nginx-app:develop -f Dockerfile-nginx .
+- docker build -t $DOCKER_USERNAME/nginx-app:develop \
+      --build-arg url=$DATABASE_URL \
+      --build-arg username=$DATABASE_USERNAME \
+      --build-arg password=$DATABASE_PASSWORD \
+      --build-arg naver_client_id=$NAVER_CLIENT_ID \
+      --build-arg naver_client_secret=$NAVER_CLIENT_SECRET \
+      --build-arg kakao_client_id=$KAKAO_CLIENT_ID \
+      --build-arg kakao_client_secret=$KAKAO_CLIENT_SECRET \ -f Dockerfile-nginx .
 - docker push $DOCKER_USERNAME/nginx-app:develop
 
 deploy:
