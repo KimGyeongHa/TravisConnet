@@ -10,4 +10,6 @@
 
 2. dockerfile build 중 ../ 으로 상위폴더 접근을 하였으나, docker에서는 ../ 상위폴더 접근을 지원하지않음 > dockerfile 위치변경
 
-3. travis ev name값에 - 사용불가 _로 대체하여 사용
+3. travis ev name값에 - 사용불가  > _로 대체하여 사용
+
+4. application.yml 설정파일이 보안문제로 git repository에 올라오지 않고 있었다. 
