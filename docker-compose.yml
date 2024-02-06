@@ -4,11 +4,6 @@ services:
   bmart-app:
     container_name : bmart-app
     image: kimgyeongha/bmart-app:develop
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://Docker-bmart-app-env.eba-2z2gk2k7.ap-northeast-2.elasticbeanstalk.com:8080/health"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
     ports:
       - "8080:8080"
     depends_on:
