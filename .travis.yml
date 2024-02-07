@@ -4,14 +4,13 @@ dist: focal
 
 services:
   - docker
+
+git:
+  submodules: false
  
 before_install:
 - echo "docker compose creating and start" 
-- git submodule update --init --recursive
-
-env:
-  global:
-    - GITHUB_TOKEN=${GITHUB_ACCESS_TOKEN}
+- git submodule update --init --remote --recursive
 
 script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
