@@ -5,6 +5,11 @@ dist: focal
 services:
   - docker
 
+git:
+  submodules: true
+  quiet: true
+  depth: false
+
 before_install:
 - echo "docker compose creating and start" 
 - echo -e "machine github.com\n  login $GITHUB_ACCESS_TOKEN"
