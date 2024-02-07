@@ -12,18 +12,17 @@ script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 - docker build -t $DOCKER_USERNAME/bmart-app:develop -f Dockerfile-app .
 - docker push $DOCKER_USERNAME/bmart-app:develop
-- docker build -t $DOCKER_USERNAME/nginx-app:develop -f Dockerfile-nginx  .
+- docker build -t $DOCKER_USERNAME/nginx-app:develop -f Dockerfile-nginx .
 - docker push $DOCKER_USERNAME/nginx-app:develop
-- docker-compose up -d 
 
 deploy:
   provider: elasticbeanstalk
   access_key_id: "$AWS_ACCESS_KEY"
   secret_access_key: "$AWS_SECRET_ACCESS_KEY"
   region: "ap-northeast-2"
-  app: "dokcer-bmart-app"
-  env: "Dokcer-bmart-app-env"
+  app: "docker-bmart-app"
+  env: "Docker-bmart-app-env"
   bucket_name: "elasticbeanstalk-ap-northeast-2-284256502692"
-  bucket_path : "dokcer-bmart-app"
+  bucket_path : "docker-bmart-app"
   on:
     branch: develop
