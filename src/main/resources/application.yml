@@ -10,9 +10,9 @@ spring:
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: ${url}
-    username: ${username}
-    password: ${password}
+    url: ${db.url}
+    username: ${db.username}
+    password: ${db.password}
 
   jpa:
     show-sql: true
@@ -36,18 +36,18 @@ spring:
         registration:
           naver:
             client-name: naver
-            client-id: ${naver_client_id}
-            client-secret: ${naver_client_secret}
+            client-id: ${naver.client-id}
+            client-secret: ${naver.client-secret}
             scope: name, email
-            redirect-uri: http://bmart-app/login/oauth2/code/naver
+            redirect-uri: http://localhost:8080/login/oauth2/code/naver
             authorization-grant-type: authorization_code
             client-authentication-method: client_secret_post
           kakao:
             client-name: kakao
-            client-id: ${kakao_client_id}
-            client-secret: ${kakao_client_secret}
+            client-id: ${kakao.client-id}
+            client-secret: ${kakao.client-secret}
             scope: profile_nickname, account_email
-            redirect-uri: http://bmart-app/login/oauth2/code/kakao
+            redirect-uri: http://localhost:8080/login/oauth2/code/kakao
             authorization-grant-type: authorization_code
             client-authentication-method: client_secret_post
         provider:
@@ -61,8 +61,6 @@ spring:
             token-uri: https://kauth.kakao.com/oauth/token
             user-info-uri: https://kapi.kakao.com/v2/user/me
             user-name-attribute: id
-server:
-  port: 8080
 
 jwt:
   issuer: Bmart
