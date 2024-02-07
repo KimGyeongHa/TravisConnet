@@ -8,7 +8,7 @@ services:
 git:
   submodules: false
 before_install:
-  - echo -e "\n\nmachine github.com\n login $CI_USER_TOKEN\n" >~/.netrc
+  - echo -e "\n\nmachine github.com\n login $GITHUB_ACCESS_TOKEN\n" >~/.netrc
   - git submodule update --init --recursive
 
 script:
