@@ -6,13 +6,10 @@ services:
   - docker
 
 git:
-  submodules: true
-  quiet: true
-  depth: false
-
+  submodules: false
 before_install:
-- echo -e "machine github.com\n  login KimGyeongHa\n  password $GITHUB_ACCESS_TOKEN" >~/.netrc
--  git submodule update --init --recursive
+  - echo -e "\n\nmachine github.com\n login $CI_USER_TOKEN\n" >~/.netrc
+  - git submodule update --init --recursive
 
 script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
