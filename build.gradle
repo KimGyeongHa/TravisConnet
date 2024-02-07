@@ -151,7 +151,7 @@ task bmartIntegrationTest(type: Test) {
 processResources.dependsOn('copySecret')
 
 task copySecret(type: Copy) {
-	from '../serect_repo/env/application-local.yml'
+	from 'serect_repo/env/application-local.yml'
 	into 'src/main/resources'
 }
 
