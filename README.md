@@ -12,4 +12,6 @@
 
 3. travis ev name값에 - 사용불가  > _로 대체하여 사용
 
-4. application.yml 설정파일이 보안문제로 git repository에 올라오지 않고 있었다. > private repo를 생성하여 submodule로 사용하여 설정파일 사용하기
+4. application.yml 설정파일이 보안문제로 git repo에 올라오지 않고 있었다. > private repo를 생성하여 submodule로 사용하여 설정파일 사용하기
+
+   private repo에 travis에서 접근하기 위해 Personal Access Token(PAT)을 사용하여 before_install에 git 인증을 받아 private접근을하여 사용
