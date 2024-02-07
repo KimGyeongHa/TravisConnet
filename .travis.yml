@@ -7,7 +7,7 @@ services:
  
 before_install:
 - echo "docker compose creating and start" 
-- echo ${GITHUB_TOKEN} | travis encrypt --org -r https://github.com/KimGyeongHa/serect_repo
+- echo ${GITHUB_ACCESS_TOKEN} | travis encrypt --org -r KimGyeongHa/https://github.com/KimGyeongHa/serect_repo
 
 script:
 - git submodule update --init --recursive
