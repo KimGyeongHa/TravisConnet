@@ -7,11 +7,13 @@ services:
  
 before_install:
 - echo "docker compose creating and start" 
-- gem install travis
+- git submodule update --init --recursive
 
+env:
+  global:
+    - GITHUB_TOKEN=${GITHUB_ACCESS_TOKEN}
 
 script:
-- git submodule update --init --recursive
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 - docker build -t $DOCKER_USERNAME/bmart-app:develop -f Dockerfile-app .
 - docker push $DOCKER_USERNAME/bmart-app:develop
