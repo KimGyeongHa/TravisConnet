@@ -7,9 +7,8 @@ services:
  
 before_install:
 - echo "docker compose creating and start" 
-- echo gem install travis
-- echo travis login --org
-- echo ${GITHUB_ACCESS_TOKEN} | travis encrypt --org -r KimGyeongHa/https://github.com/KimGyeongHa/serect_repo
+- gem install travis
+
 
 script:
 - git submodule update --init --recursive
