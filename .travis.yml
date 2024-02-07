@@ -6,7 +6,7 @@ services:
   - docker
 
 before_install:
-- echo "docker compose creating and start"
+- echo "docker compose creating and start" 
 
 script:
 - git config --global credential.helper store 
