@@ -11,12 +11,8 @@ git:
   depth: false
 
 before_install:
-- echo "docker compose creating and start" 
-- echo -e "machine github.com\n  login $GITHUB_ACCESS_TOKEN"
-
-env:
-  global:
-    - secure: $GITHUB_ACCESS_TOKEN
+- echo -e "machine github.com\n  login KimGyeongHa\n  password $GITHUB_ACCESS_TOKEN" >~/.netrc
+-  git submodule update --init --recursive
 
 script:
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
