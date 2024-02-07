@@ -7,7 +7,7 @@ services:
 
 before_install:
 - echo "docker compose creating and start" 
-- echo -e "machine github.com\n  login $GITHUB_ACCESS_TOKEN" > ~/.netrc
+- echo -e "machine github.com\n  login $GITHUB_ACCESS_TOKEN" >
 
 env:
   global:
