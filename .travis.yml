@@ -9,7 +9,7 @@ before_install:
 - echo "docker compose creating and start" 
 
 script:
-- git config --global credential.helper store 
+- git submodule add https://github.com/KimGyeongHa/serect_repo serect_repo
 - git submodule update --init --recursive
 - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 - docker build -t $DOCKER_USERNAME/bmart-app:develop -f Dockerfile-app .
