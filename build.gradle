@@ -147,3 +147,12 @@ task bmartIntegrationTest(type: Test) {
 	useJUnitPlatform()
 	include '**/*bmartIntegrationTest.*'
 }
+
+processResources.dependsOn('copySecret')
+
+task copySecret(type: Copy) {
+	from '../env/application-local.yml'
+	into 'src/main/resources'
+}
+
+
